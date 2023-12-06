@@ -3,7 +3,7 @@
 # Mini Project 3
 
 
-#(5/5 points) Initial comments with your name, class and project at the top of your .py file.
+
 #(5/5 points) Proper import of packages used.
 #(70/70 points) Using Flask you need to setup the following:
 #(10/10 points) Setup a proper folder structure, use the tutorial as an example.
@@ -24,3 +24,13 @@
 # is, how to install the pip requirements, and how to execute the program. Please use the GitHub
 # flavor of Markdown. Be thorough on the explanations. You will need to explain the steps of
 # initializing the database and then how to run the development server for your project.
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
