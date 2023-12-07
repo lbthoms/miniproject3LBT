@@ -7,7 +7,18 @@
 {% block content %}
   <form method="post">
     <label for="member">Member</label>
-    <input name="member" id="member" value="{{ request.form['member'] }}" required>
+    <!input name="member" id="member" value="{{ request.form['member'] }}" required>
+    <input name ="member" list="member" value="{{ request.form['member'] }}" required>
+      <datalist id="member">
+        <option value="Kim Namjoon">
+        <option value="Kim Seokjin">
+        <option value="Min Yoongi">
+        <option value="Jung Hoseok">
+        <option value="Park Jimin">
+        <option value="Kim Taehyung">
+        <option value="Jeon Jungkook">
+        <option value="Group PC">
+      </datalist>
 
     <label for="title">Title</label>
     <input name="title" id="title" value="{{ request.form['title'] }}" required>
