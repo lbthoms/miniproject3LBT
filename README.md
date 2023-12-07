@@ -2,7 +2,7 @@
 ### Lisa Thoms
 ### Mini Project 03
 
-![Picture of BTS, the biggest K-POP act in the world. ](https://people.com/thmb/sQSl8jHALt3PIvnpVV2uUWxB1ew=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(599x0:601x2)/BTS_JOIN_LOUIS_VUITTON_AS_HOUSE_AMBASSADORS-a525d86a4d4745dd8ff413cc723c6c7e.jpg)
+![Picture of BTS, the biggest K-POP act in the world. ](https://i.pinimg.com/originals/a4/9f/76/a49f7601c292c70339a0c922784f3aa2.jpg)
 
 ## Description
 This project will assist people within the K-POP Buy/Sell/Trade community on various social
@@ -18,6 +18,6 @@ pip install -r requirements.txt
 ## How To Run
 
 ```
-python main.py
+flask --app btspc run --debug
 ```
 
