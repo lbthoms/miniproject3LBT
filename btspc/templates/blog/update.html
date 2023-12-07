@@ -7,7 +7,6 @@
 {% block content %}
   <form method="post">
     <label for="member">Member</label>
-    <!input name="member" id="member" value="{{ request.form['member'] or post['title'] }}" required>
     <input name ="member" list="member" value="{{ request.form['member'] or post['member'] }}" required>
     <datalist id="member">
         <option value="Kim Namjoon">
@@ -23,7 +22,7 @@
     <label for="title">Album</label>
     <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
 
-    <label for="body">Body</label>
+    <label for="body">Description</label>
     <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
     <input type="submit" value="Save">
   </form>
