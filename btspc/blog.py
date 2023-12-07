@@ -12,7 +12,7 @@ bp = Blueprint('blog', __name__)
 def index():
     db = get_db()
     posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username'
+        'SELECT p.id, member, title, body, created, author_id, username'
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
@@ -23,10 +23,13 @@ def index():
 @login_required
 def create():
     if request.method == 'POST':
+        member = request.form['member']
         title = request.form['title']
         body = request.form['body']
         error = None
 
+        if not member:
+            error = 'Member is required.'
         if not title:
             error = 'Title is required.'
 
@@ -35,9 +38,9 @@ def create():
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO post (title, body, author_id)'
-                ' VALUES (?, ?, ?)',
-                (title, body, g.user['id'])
+                'INSERT INTO post (member, title, body, author_id)'
+                ' VALUES (?, ?, ?, ?)',
+                (member, title, body, g.user['id'])
             )
             db.commit()
             return redirect(url_for('blog.index'))
@@ -66,10 +69,13 @@ def update(id):
     post = get_post(id)
 
     if request.method == 'POST':
+        member = request.form['member']
         title = request.form['title']
         body = request.form['body']
         error = None
 
+        if not member:
+            error = 'Member is required.'
         if not title:
             error = 'Title is required.'
 
@@ -78,9 +84,9 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET title = ?, body = ?'
+                'UPDATE post SET member = ?, title = ?, body = ?'
                 ' WHERE id = ?',
-                (title, body, id)
+                (member, title, body, id)
             )
             db.commit()
             return redirect(url_for('blog.index'))

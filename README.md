@@ -15,6 +15,12 @@ Please run the following:
 pip install -r requirements.txt
 ```
 
+## Initialize the Database
+
+```
+flask --app btspc init-db
+```
+
 ## How To Run
 
 ```
